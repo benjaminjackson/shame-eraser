@@ -1,5 +1,3 @@
-$: << 'lib'
-
 require 'date'
 require 'csv'
 
@@ -8,7 +6,11 @@ require "bundler/setup"
 
 require 'twitter'
 require 'chronic'
+
+$: << 'lib'
+
 require 'lib_trollop'
+require 'config'
 
 p = Trollop::Parser.new do
   
@@ -27,8 +29,6 @@ EOS
 
 opt :"start-date", "Tweets before this date will not be deleted", :short => 's', :type => Date
 opt :"end-date", "Tweets after this date will not be deleted", :short => 'e', :type => Date
-opt :username, "Twitter username", :short => 'u', :type => String
-opt :password, "Twitter password", :short => 'p', :type => String
   
 end
 
@@ -53,17 +53,6 @@ TWEET_ARCHIVE_DIR = ARGV.shift
   end
 end
 
-[:username, :password].each do |key|
-  if @opts[key].nil?
-    puts "\nPlease enter your Twitter #{key}:"
-    system "stty -echo" if key == :password
-    @opts[key] = gets
-    system "stty echo" if key == :password
-  end  
-end
-
-@twitter = Twitter::Client.new
-
 def delete_tweets_in_file filepath
   lines = CSV.read(filepath)
   id_index = lines.first.index("tweet_id")
@@ -73,7 +62,8 @@ def delete_tweets_in_file filepath
     date = Date.parse(row[date_index])
     if (@opts[:"start-date"]...@opts[:"end-date"]).include?(date)
       id = row[id_index]
-      @twitter.status_destroy(id)
+      puts "Deleting tweet with ID #{id}"
+      Twitter.status_destroy(id)
     end
   end
 end
@@ -84,10 +74,6 @@ confirmation = gets
 if confirmation.chomp == "Y"
   puts "Deleting tweets..."
   Dir.glob(File.join(TWEET_ARCHIVE_DIR, "data", "csv", "*")).each do |filepath|
-    date_string = File.basename(filepath).sub(".csv", "").sub("_", "-")
-    date = Date.parse("#{date_string}-01")
-    if (@opts[:"start-date"]...@opts[:"end-date"]).include?(date)
-      delete_tweets_in_file(filepath)
-    end
+    delete_tweets_in_file(filepath)
   end
 end
