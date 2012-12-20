@@ -68,7 +68,7 @@ def delete_tweets_in_file filepath
   end
 end
 
-puts "\nThis action will PERMANENTLY delete your tweets between #{@opts[:"start-date"]} and #{@opts[:"end-date"]}. Are you absolutely certain beyond a shadow of a doubt that you want to do this? There is no undo. (Y/n)"
+puts "\nThis action will PERMANENTLY delete your tweets for @#{Twitter.user.username} between #{@opts[:"start-date"]} and #{@opts[:"end-date"]}. Are you absolutely certain beyond a shadow of a doubt that you want to do this? There is no undo. (Y/n)"
 confirmation = gets
 
 if confirmation.chomp == "Y"
