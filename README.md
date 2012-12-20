@@ -9,15 +9,23 @@ A small Ruby script for erasing your shame on Twitter (i.e., your oldest tweets)
 
 ### Instructions:
 
+#### Set Up A Twitter App
+
 First, you'll have to set up a Twitter app on the developer portal and generate an OAuth key.
 
 1. Visit the [Twitter Developer Apps](https://dev.twitter.com/apps) page and [create a new app](https://dev.twitter.com/apps/new), filling out only the required fields.
 2. Go to the "Settings" tab for your app, scroll down, and change "Application Type" to "Read and Write", then click "Update this Twitter application's settings".
 3. Go to the "Details" tab, scroll down, and click "Create my access token" (or "Recreate my access token" if you already created one). When you refresh, you should see "Access Level: Read and Write" after your access token and secret.
 
-Download your tweet archive and unzip it. Next, you'll have to run some things on the command line. Open the Terminal (just type "Terminal" into Spotlight), copy and paste this into it and hit Enter:
+#### Set Up Git
 
-    git co https://github.com/benjaminjackson/shame-eraser.git && cd shame-eraser && bundle install && open lib
+Install Git using [these instructions on Github](https://help.github.com/articles/set-up-git).
+
+#### Delete Your Old Tweets
+
+Download your tweet archive and unzip it. Next, you'll have to run some things on the command line. Open the Terminal (just type "Terminal" into Spotlight), copy and paste this into the tab that opens up, and hit Enter:
+
+    git checkout https://github.com/benjaminjackson/shame-eraser.git && cd shame-eraser && bundle install && open lib
 
 Now copy your consumer key, consumer secret, access token, and access token secret into lib/config.rb and then copy and paste this line *without* pressing Enter:
 
