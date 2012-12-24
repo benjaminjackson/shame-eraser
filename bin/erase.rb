@@ -111,4 +111,6 @@ if confirmation == "Y" || confirmation == 'yes'
   Dir.glob(File.join(TWEET_ARCHIVE_DIR, "data", "csv", "*")).each do |filepath|
     delete_tweets_in_file(filepath)
   end
+else
+  puts "Canceling"
 end
