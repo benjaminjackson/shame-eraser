@@ -45,11 +45,12 @@ if @opts[:number].nil?
   puts "Enter a number, or 'date' to specify a date range." 
   puts "For example, '50' will delete your first 50 tweets."
   @opts[:number] = gets.chomp.strip
-  while @opts[:number].to_i <= 0 && @opts[:number] != "date"
+  while @opts[:number].to_i <= 0 && !@opts[:number].to_s.include?("date")
     puts "Please specify a number greater than 0, or 'date'."
-    @opts[:number] = gets.chomp.strip.to_i
+    @opts[:number] = gets.chomp.strip
   end
-  @opts[:number] = @opts[:number].to_i
+  @opts[:number] = "date" if @opts[:number].to_s.include?("date")
+  @opts[:number] = @opts[:number].to_i unless @opts[:number] == "date"
 end
 
 if @opts[:number] == "date"
