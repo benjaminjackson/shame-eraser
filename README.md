@@ -1,7 +1,10 @@
 # shame-eraser
 
+Now that Twitter has made it easy to download our entire tweet archives, the Internet is now faced with the scary reality that the dumbest things we've ever said are only a few clicks away. Our early tweets were sent from a time of innocence, joy, and freedom from the realization that one day other people (and we ourselves) might pass judgement on them. 
 
-A small Ruby script for erasing your shame on Twitter (i.e., your oldest tweets).  
+But the time of reckoning has come. And if you're unable to bear the weight of your shame, this is your way out. Perhaps you had a particularly dark period after a break-up. Maybe your first six months on Twitter were just bad haikus. If you're the type of person who rips up your old shitty poems, this script is for you.
+
+**Important:** this should be obvious, but to be sure **there is no undo** for this script. If you haven't seen *Eternal Sunshine of the Spotless Mind*, you might want to watch it first. Weigh your options carefully before erasing your past. 
 
 ### Author 
 
@@ -33,4 +36,6 @@ Now copy your consumer key, consumer secret, access token, and access token secr
 
     bundle exec ruby bin/erase.rb 
     
-Drag your tweets folder onto Terminal and it should auto-complete the path to the folder. *Now* hit Enter. The script will prompt you for a start and end date, and confirm that you **really** want to do this.
+Drag your tweets folder onto Terminal and it should auto-complete the path to the folder. *Now* hit Enter, and follow the instructions.
+
+Good luck, and enjoy your new shame-free life on Twitter.
