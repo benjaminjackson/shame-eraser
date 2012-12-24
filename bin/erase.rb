@@ -59,10 +59,10 @@ if @opts[:number] == "date"
       while !@opts[key].is_a?(Date)
         begin
           puts "\nWhat's the #{key == :"start-date" ? "start" : "end"} date? Example: 'a year ago', 'January 2009'. Tweets #{key == :"start-date" ? "before" : "after"} this date will not be deleted."
-          @opts[key] = Chronic::parse(gets.chomp.strip).to_date
+          @opts[key] = Date::parse(Chronic::parse(gets.chomp.strip).strftime("%Y-%m-%d"))
           puts "Great! That looks like #{@opts[key].to_s}."
-        # rescue
-        #   puts "Error parsing date. Please try again."
+        rescue
+          puts "Error parsing date. Please try again."
         end
       end
     end
