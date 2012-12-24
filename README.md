@@ -31,6 +31,6 @@ Download your tweet archive and unzip it. Next, you'll have to run some things o
 
 Now copy your consumer key, consumer secret, access token, and access token secret into lib/config.rb and then copy and paste this line *without* pressing Enter:
 
-    bundle exec ruby bin/eraser.rb 
+    bundle exec ruby bin/erase.rb 
     
 Drag your tweets folder onto Terminal and it should auto-complete the path to the folder. *Now* hit Enter. The script will prompt you for a start and end date, and confirm that you **really** want to do this.
