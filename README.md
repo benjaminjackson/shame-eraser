@@ -4,7 +4,7 @@ Now that Twitter has made it easy to download our entire tweet archives, the Int
 
 But the time of reckoning has come. And if you're unable to bear the weight of your shame, this is your way out. Perhaps you had a particularly dark period after a break-up. Maybe your first six months on Twitter were just bad haikus. If you're the type of person who rips up your old shitty poems, this script is for you.
 
-**Important:** this should be obvious, but to be sure **there is no undo** for this script. If you haven't seen *Eternal Sunshine of the Spotless Mind*, you might want to watch it first. Weigh your options carefully before erasing your past. 
+**Important:** this should be obvious, but to be sure **there is no undo** for this script. If you haven't seen *Eternal Sunshine of the Spotless Mind*, you might want to watch it first. Weigh your options carefully before erasing your past. (You will, of course, still have your local archive after deleting the public tweets.)
 
 ### Author 
 
