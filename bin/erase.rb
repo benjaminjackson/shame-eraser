@@ -83,8 +83,12 @@ def delete_tweets_in_file filepath
        (@opts[:number] == "date" && (@opts[:"start-date"]...@opts[:"end-date"]).include?(date))
       id = row[id_index]
       puts "Deleting tweet with ID #{id}"
-      Twitter.status_destroy(id)
-      @total_deleted += 1
+      begin
+        Twitter.status_destroy(id)
+        @total_deleted += 1
+      rescue Twitter::Error::NotFound
+        puts "Tweet not found. Perhaps you already deleted this one?"
+      end
     end
     if @opts[:number] != "date" && @total_deleted == @opts[:number]
       puts "Finished deleting #{@opts[:number]} tweets"
